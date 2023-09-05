@@ -1,0 +1,29 @@
+.nav-tab {
+  background-color: #000;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+
+   
+}
+
+.nav-tab__link {
+  color: #FFF;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px; /* 123.077% */
+  text-decoration-line: underline;
+  margin: 24px 0;
+}
+
+
+@media screen and (max-width: 560px) {
+
+  .nav-tab__link {
+    font-size: 11px;
+  }
+  .nav-tab {
+    max-width: 100%;
+  }
+  
+}
