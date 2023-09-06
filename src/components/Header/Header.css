@@ -1,15 +1,19 @@
+.header_promo {
+  background-color: #f3c1f8;
+}
 .header {
-  display: flex;
   background-color: #fff;
+}
+
+.header__container {
+  display: flex;
   padding: 18px 70px;
   align-items: center;
   justify-content: space-between;
   max-width: 1280px;
+  margin: 0 auto;
 }
 
-.header_promo {
-  background-color: #f3c1f8;
-}
 
 .header__logo {
   width: 38px;
@@ -47,3 +51,67 @@
     opacity: .8;
   }
 }
+
+.nav__auth {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav__auth-register {
+  text-decoration: none;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  color: #000; 
+}
+
+.nav__auth-login {
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; 
+  background-color: #000; 
+  border-radius: 3px;
+  width: 76px;
+  height: 16px;
+  text-align: center;
+  padding: 8px 0;
+}
+
+@media screen and (max-width: 880px) {
+  .header {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .header {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    padding: 18px 18px;
+  }
+  .nav__auth {
+    gap: 14px;
+  }
+  
+  .nav__auth-register {
+    font-size: 10px;
+    }
+  .nav__auth-login {
+    font-size: 10px;
+    font-style: normal;
+    width: 54px;
+    height: 16px;
+    text-align: center;
+    padding: 5px 0;
+  }
+}
+
