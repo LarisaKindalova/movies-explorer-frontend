@@ -4,6 +4,7 @@ import "./Techs.css";
 function Techs () {
   return (
     <section className="techs" id="techs">
+      <div className="teches__wrap">
       <h2 className="techs__title">Технологии</h2>
       <h3 className="techs__subtitle">7 технологий</h3>
       <p className="techs__description">
@@ -19,6 +20,7 @@ function Techs () {
         <li className="techs__item">Express.js</li>
         <li className="techs__item">mongoDB</li>
       </ul>
+      </div>
     </section>
   );
 }

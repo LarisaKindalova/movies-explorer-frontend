@@ -1,8 +1,12 @@
 .techs {
+  background-color: #f5f5f5;
+}
+
+.teches__wrap {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  background-color: #f5f5f5;
+  max-width: 1280px;
 }
 
 .techs__title {
