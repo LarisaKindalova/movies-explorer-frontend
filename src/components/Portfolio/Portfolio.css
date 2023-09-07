@@ -7,7 +7,7 @@
 }
 
 .portfolio__title {
-   color: #a0a0a0;
+  color: #a0a0a0;
   font-size: 18px;
   font-weight: 400;
   line-height: 20px;
@@ -17,15 +17,22 @@
 .portfolio__list {
   list-style: none;
   display: flex;
-  gap: 40px;
+  gap: 20px;
   flex-direction: column;
   padding: 0 0 125px;
   margin: 0 70px;
 }
 
 .portfolio_item {
-  display: flex;
+  position: relative;
   justify-content: space-between;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 10px;
+  max-width: 1140px;
+}
+
+.portfolio_item:last-child {
+  border-bottom: none;
 }
 
 .portfolio__link {
@@ -36,15 +43,21 @@
   letter-spacing: -1.2px;
 }
 
+.portfolio__link::after {
+  content: "↗";
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .profile__arrow {
   font-size: 30px;
   font-weight: 400;
   line-height: 60px; /* 200% */
 }
 
-@media screen and (max-widtH: 880px) {
+@media screen and (max-width: 880px) {
   portfolio__link {
     font-size: 28px;
-
   }
 }

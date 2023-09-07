@@ -11,13 +11,13 @@
 
 .about-me__info {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .about-me__wrap {
   display: flex;
   gap: 270px;
-  margin: 66px 70px;
+  margin: 66px 70px 101px;
 }
 
 .about-me__title {
