@@ -19,11 +19,11 @@ function AboutProject () {
       <div className="project__time">
         <div className="project__backend">
           <p className="project__back">1 неделя</p>
-          <p className="project__back-text">Back-end</p>
+          <p className="project__text">Back-end</p>
         </div>
         <div className="project__frontend">
           <p className="project__front">4 недели</p>
-          <p className="project__front-text">Front-end</p>
+          <p className="project__text">Front-end</p>
         </div>
       </div>
       </div>

@@ -1,9 +1,6 @@
 .header_promo {
   background-color: #f3c1f8;
 }
-.header {
-  background-color: #fff;
-}
 
 .header__container {
   box-sizing: border-box;
@@ -29,8 +26,38 @@
   display: none;
 }
 
+.header__auth {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.header__register {
+  text-decoration: none;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  color: #000; 
+}
+
+.header__login {
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; 
+  background-color: #000; 
+  border-radius: 3px;
+  width: 76px;
+  height: 16px;
+  text-align: center;
+  padding: 8px 0;
+}
+
 @media screen and (max-width: 768px){
-  .header {
+  .header__container {
     padding: 15px 30px 0;
   }
   .header__burger {
@@ -50,6 +77,12 @@
 
   .header__burger:hover {
     opacity: .8;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .header__container {
+    padding: 18px 30px;
   }
 }
 
@@ -83,36 +116,28 @@
   padding: 8px 0;
 }
 
-@media screen and (max-width: 880px) {
-  .header {
-    padding: 18px 30px;
-  }
-}
 
-@media screen and (max-width: 880px) {
-  .header {
-    padding: 18px 30px;
+@media screen and (max-width: 650px) {
+  .header__container {
+    padding: 18px 14px;
+    max-width: 100%;
   }
-}
-
-@media screen and (max-width: 500px) {
-  .header {
-    padding: 18px 18px;
-  }
-  .nav__auth {
-    gap: 14px;
-  }
-  
-  .nav__auth-register {
-    font-size: 10px;
+    .nav__auth {
+      gap: 14px;
     }
-  .nav__auth-login {
-    font-size: 10px;
-    font-style: normal;
-    width: 54px;
-    height: 16px;
-    text-align: center;
-    padding: 5px 0;
+    .header__register {
+      font-size: 10px;
+      }
+    .header__login {
+      font-size: 10px;
+      font-style: normal;
+      width: 54px;
+      height: 16px;
+      text-align: center;
+      padding: 5px 0;
+    }
+    .header__auth {
+      gap: 14px;
+    }
   }
-}
 

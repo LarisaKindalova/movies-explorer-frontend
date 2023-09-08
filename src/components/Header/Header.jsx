@@ -8,15 +8,15 @@ function Header() {
   const location = useLocation();
 
   return (
-    <header className={`header_promo ${location.path === "/" ? "header_promo" : ""}`} >
+    <header className={`header_promo ${location.path === "/" ? "header__promo" : ""}`} >
       <div className="header__container">
         <Link to="/">
           <img className="header__logo link" src={logo} alt="Логотип"></img>
         </Link>
         {/* <Navigation /> */}
-        <nav className="nav__auth">
-            <Link to="#" className="nav__auth-register link">Регистрация</Link>
-            <Link  to="#" className="nav__auth-login button">Войти</Link>
+        <nav className="header__auth">
+            <Link to="#" className="header__register link">Регистрация</Link>
+            <Link  to="#" className="header__login button">Войти</Link>
         </nav>
       </div>
     </header>

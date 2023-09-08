@@ -59,7 +59,6 @@
   background-color: #e8e8e8;
   border-radius: 10px;
   padding: 22px 0 21px;
-  width: 90px;
   text-align: center;
 }
 
@@ -68,7 +67,7 @@
     margin: 90px 50px 0;
   }
   .techs__subtitle {
-    max-width: 600px;
+    max-width: 100%;
     margin: 80px auto 22px;
   }
   .techs__description {
@@ -76,6 +75,7 @@
   }
   .techs__item {
     font-size: 12px;
+    padding: 21px 0 21px;
   }
   .techs__list {
     grid-template-columns: repeat(auto-fit, 84px);
@@ -84,10 +84,28 @@
 }
 
 @media screen and (max-width: 440px) {
+  .techs {
+    background-color: #fff;
+  }
+  .techs__title {
+    margin: 70px 18px 0;
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 28px;
+  }
   .techs__subtitle {
     max-width: 600px;
     font-size: 30px;
     letter-spacing: -1.2px;
+    line-height: normal;
+    margin: 60px 14px 24px;
+    max-width: 292px;
+  }
+  .techs__description {
+    font-size: 11px;
+    max-width: 292px;
+    line-height: 16px; /* 145.455% */
+    letter-spacing: -0.44px;
   }
   .techs__list {
     margin: 50px 71px 140px;
