@@ -34,3 +34,10 @@
 .button:hover {
   opacity: .8;
 }
+
+.form__input:focus, 
+.button:focus, 
+.link:focus {
+  outline: 1px solid #A0A0A0;
+}
+

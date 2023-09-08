@@ -4,20 +4,22 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import { Link, useLocation } from "react-router-dom";
 
-function Header() {
+function Header(isLoggedIn) {
   const location = useLocation();
 
   return (
-    <header className={`header_promo ${location.path === "/" ? "header__promo" : ""}`} >
+    <header className={`header header_promo ${location.path === "/" ? "header_promo" : ""}`} >
       <div className="header__container">
         <Link to="/">
           <img className="header__logo link" src={logo} alt="Логотип"></img>
         </Link>
-        {/* <Navigation /> */}
-        <nav className="header__auth">
-            <Link to="#" className="header__register link">Регистрация</Link>
-            <Link  to="#" className="header__login button">Войти</Link>
-        </nav>
+        {isLoggedIn 
+        ? (<Navigation />) : (
+           <nav className="header__auth">
+              <Link to="#" className="header__register link">Регистрация</Link>
+              <Link  to="#" className="header__login button">Войти</Link>
+          </nav>)}
+          
       </div>
     </header>
   );

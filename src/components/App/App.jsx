@@ -3,17 +3,31 @@ import React from "react";
 import Header from "../Header/Header";
 import Main from '../Main';
 import Footer from '../Footer/Footer';
-import { Route, Routes } from 'react-router-dom';
+import Register from "../Register/Register";
+import Login from '../Login/Login';
+import NotFound from '../NotFound/NotFound';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 function App() {
+  const [isLoggedIn, setLoggedIn] = React.useState(true);
+  const location = useLocation();
+
+
+  const pathLink = location.pathname === "/sign-up" ? "/sign-in" : "/sign-up";
+
   return (
     <div className="page">
-      <Header />
+      {!pathLink && 
+      <Header 
+      isLoggedIn= {true}/>}
       <Routes>
-        <Route path="/" element= {<Main />}/>
+        <Route path="/sign-up" element = {<Register/>}/>
+        <Route path="/sign-in" element = {<Login/>}/>
+        <Route path="/" element = {<Main />}/>
+        <Route path="*" element = {<NotFound/>}/>
 
       </Routes>
-      <Footer />
+      {!pathLink &&  <Footer />}
       
     </div>
   );

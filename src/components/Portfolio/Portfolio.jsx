@@ -6,7 +6,7 @@ function Portfolio() {
     <section className="portfolio">
       <h2 className="portfolio__title">Портфолио</h2>
       <ul className="portfolio__list">
-        <li className="portfolio_item">
+        <li className="portfolio__item">
           <a
             className="portfolio__link link"
             href="https://github.com/LarisaKindalova/how-to-learn"
@@ -15,9 +15,8 @@ function Portfolio() {
           >
             Статичный сайт
           </a>
-          {/* <span className="profile__arrow">↗</span> */}
         </li>
-        <li className="portfolio_item">
+        <li className="portfolio__item">
           <a
             className="portfolio__link link"
             href="https://github.com/LarisaKindalova/russian-travel"
@@ -26,9 +25,8 @@ function Portfolio() {
           >
             Адаптивный сайт
           </a>
-          {/* <span className="profile__arrow">↗</span> */}
         </li>
-        <li className="portfolio_item">
+        <li className="portfolio__item">
           <a
             className="portfolio__link link"
             href="https://github.com/LarisaKindalova/react-mesto-api-full-gha"
@@ -37,7 +35,6 @@ function Portfolio() {
           >
             Одностраничное приложение
           </a>
-          {/* <span className="profile__arrow">↗</span> */}
         </li>
       </ul>
     </section>
