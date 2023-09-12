@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./AboutMe.css";
-import profile_foto from '../../images/profile_foto.jpg'
-
+import profile_foto from "../../../images/profile_foto.jpg";
 
 function AboutMe () {
 

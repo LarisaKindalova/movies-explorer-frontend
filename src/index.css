@@ -11,33 +11,34 @@
   width: 100%;
   min-height: 100vh;
   color: #000;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 .link {
   text-decoration: none;
-  transition: opacity .2s linear;
+  transition: opacity 0.2s linear;
   color: #000;
-  
 }
 
 .link:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .button {
-  transition: opacity .2s linear;
+  transition: opacity 0.2s linear;
 }
 
 .button:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
-.form__input:focus, 
-.button:focus, 
-.link:focus {
-  outline: 1px solid #A0A0A0;
+.form__input:focus,
+.profile__input:focus,
+.button:focus,
+.link:focus,
+.logo:focus,
+.profile__iput:focus {
+  outline: 1px solid #a0a0a0;
 }
-

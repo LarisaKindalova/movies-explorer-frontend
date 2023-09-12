@@ -1,11 +1,13 @@
 import './App.css';
 import React from "react";
 import Header from "../Header/Header";
-import Main from '../Main';
+import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import Register from "../Register/Register";
 import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
+import Profile from '../Profile/Profile';
+import Movies from "../Movies/Movies";
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 function App() {
@@ -13,21 +15,21 @@ function App() {
   const location = useLocation();
 
 
-  const pathLink = location.pathname === "/sign-up" ? "/sign-in" : "/sign-up";
+  const pathLink = location.pathname === "/signup" || location.pathname === "/signin";
 
   return (
     <div className="page">
-      {!pathLink && 
-      <Header 
-      isLoggedIn= {true}/>}
+      <Header />
       <Routes>
-        <Route path="/sign-up" element = {<Register/>}/>
-        <Route path="/sign-in" element = {<Login/>}/>
+        <Route path="/signup" element = {<Register/>}/>
+        <Route path="/signin" element = {<Login/>}/>
+        <Route path="/profile" element = {<Profile/>}/>
         <Route path="/" element = {<Main />}/>
+        <Route path="/movies" element= {<Movies/>}/>
         <Route path="*" element = {<NotFound/>}/>
 
       </Routes>
-      {!pathLink &&  <Footer />}
+      {!pathLink ? (<Footer />) : ("")}
       
     </div>
   );

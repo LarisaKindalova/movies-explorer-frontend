@@ -2,10 +2,22 @@
   display: flex;
   flex-direction: column;
   margin: 70px auto;
+  flex: auto;
+}
+
+.button_type_login {
+  margin: 158px 0 0;
 }
 
 @media screen and (max-width: 800px) {
   .login {
     margin: 232px auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .login {
+    margin: 56px auto;
+    align-items: center;
   }
 }

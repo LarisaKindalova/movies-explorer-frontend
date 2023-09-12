@@ -1,6 +1,6 @@
 .navigation {
   display: flex;
-  gap: 50px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -28,9 +28,7 @@
 }
 
 .navigation__profile {
-  display: flex;
-  gap: 13px;
-  align-items: center;
+margin-left: 30px;
 
 }
 

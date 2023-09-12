@@ -3,8 +3,15 @@ import { Link } from "react-router-dom";
 import Form from "../Form/Form";
 import "./Register.css";
 import logo from "../../images/logo.svg";
+import useValidation from "../hooks/useValidation";
 
 function Register() {
+  const { values, handleChange, errors, isFormValid } = useValidation(); 
+
+  const handleSubmitForm = (evt) => {
+    evt.preventDefault();
+  }
+
   return (
     <section className="register">
       <div className="auth__header">
@@ -13,34 +20,49 @@ function Register() {
         </Link>
         <h1 className="auth__title">Добро пожаловать!</h1>
       </div>
-      <Form name="register" buttonText="Зарегистрироваться">
-        <lable className="form__lable" for="name">Имя</lable>
+      <Form 
+      name="register" 
+      buttonText="Зарегистрироваться"
+      disabled={isFormValid}
+      onSubmit={handleSubmitForm}
+      >
+        <lable className="form__lable" htmlFor="name">Имя</lable>
         <input
           type="text"
           className="form__input"
           id="name"
-          required
           placeholder="Имя"
+          minLength={2}
+          maxLength={40}
+          name="name"
+          value={values.name || ""}
+          onChange={handleChange}
         />
+        <span className="form__error">{errors.name || ""}</span>
          <lable className="form__lable" for="email">E-mail</lable>
         <input
           className="form__input"
-          required={true}
           type="email"
           id="email"
           placeholder="Email"
           name="email"
+          value={values.email || ""}
+          onChange={handleChange}
         ></input>
+        <span className="form__error">{errors.email || ""}</span>
            <lable className="form__lable" for="email">Пароль</lable>
         <input
           className="form__input form__input_type_password"
-          required={true}
+          required
           type="password"
-          min={6}
-          max={12}
+          minLength={6}
+          maxLength={12}
           id="password"
           name="password"
+          value={values.password || ""}
+          onChange={handleChange}
           ></input>
+          <span className="form__error">{errors.password || ""}</span>
       </Form>
       <div className="auth__sign">
         <p className="auth__subtitle">Уже зарегистрированы?</p>
