@@ -15,10 +15,10 @@ function Navigation () {
   return (
     <>
     <nav className="navigation">
-        <NavLink to="#" className={({isActive}) => `navigation__link link ${isActive ? "navigation__link_active" : ""}`}>Фильмы</NavLink>
-        <NavLink to="#" className={({isActive}) => `navigation__link link ${isActive ? "navigation__link_active" : ""}`}>Сохранённые фильмы</NavLink>
+        <NavLink to="/movies" className={({isActive}) => `navigation__link link ${isActive ? "navigation__link_active" : ""}`}>Фильмы</NavLink>
+        <NavLink to="/saved-movies" className={({isActive}) => `navigation__link link ${isActive ? "navigation__link_active" : ""}`}>Сохранённые фильмы</NavLink>
       <nav className="navigation__profile">
-        <Link to="#" className="navigation__profile-link link">
+        <Link to="/profile" className="navigation__profile-link link">
           <img className="navigation__profile-btn" src={location.pathname === "/" ? profile_promo : profile} alt="Кнопка входа в аккаунт" />
         </Link>
       </nav>

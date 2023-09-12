@@ -13,8 +13,8 @@ function BurgerMenu ({onClose}) {
         onClick={onClose}/>
         <nav className="burger__navigtion">
           <NavLink to="/" className={({isActive}) => `burger_link  link ${isActive ? "burger_link_active" : ""}`}>Главная</NavLink>
-          <NavLink to="/movies" className={({isActive}) => `burger_link link ${isActive ? "burger_link" : ""}`}>Фильмы</NavLink>
-          <NavLink to="/" className={({isActive}) => `burger_link link ${isActive ? "burger_link" : ""}`}>Сохранённые фильмы</NavLink>
+          <NavLink to="/movies" className={({isActive}) => `burger_link link ${isActive ? "burger_link_active" : ""}`}>Фильмы</NavLink>
+          <NavLink to="/saved-movies" className={({isActive}) => `burger_link link ${isActive ? "burger_link_active" : ""}`}>Сохранённые фильмы</NavLink>
         </nav>
           <nav className="burger__profile-nav">
           <Link to="#" className="navigation__profile-link link">

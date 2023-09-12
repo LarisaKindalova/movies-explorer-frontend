@@ -34,11 +34,9 @@
   opacity: 0.8;
 }
 
-.form__input:focus,
-.profile__input:focus,
+.input:focus,
 .button:focus,
 .link:focus,
-.logo:focus,
-.profile__iput:focus {
+.logo:focus {
   outline: 1px solid #a0a0a0;
 }
