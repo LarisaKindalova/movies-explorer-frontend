@@ -14,7 +14,7 @@ function SearchForm() {
             id="search__input"
             placeholder="Фильм"
           />
-        <button className="submit__button search__button button">Найти</button>
+        <button className="search__button button">Найти</button>
         </div>
       <FilterCheckbox/>
       </form>

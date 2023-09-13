@@ -3,8 +3,8 @@ import "./FilterCheckbox.css";
 
 function FilterCheckbox() {
   return (
-    <div className="checkbox__wrap">
-      <input type="checkbox" id="checkbox" className="checkbox" />
+    <div className="checkbox">
+      <input type="checkbox" id="checkbox" className="checkbox__input" />
       <label htmlFor="checkbox" className="checkbox__label">
         Короткометражки
       </label>

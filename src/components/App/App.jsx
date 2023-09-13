@@ -24,9 +24,9 @@ function App() {
         <Route path="/signup" element = {<Register/>}/>
         <Route path="/signin" element = {<Login/>}/>
         <Route path="/profile" element = {<Profile/>}/>
+        <Route path="*" element = {<NotFound/>}/>
         <Route path="/" element = {<Main />}/>
         <Route path="/movies" element= {<Movies/>}/>
-        <Route path="*" element = {<NotFound/>}/>
 
       </Routes>
       {!pathLink ? (<Footer />) : ("")}
