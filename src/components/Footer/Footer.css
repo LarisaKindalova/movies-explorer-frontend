@@ -1,7 +1,7 @@
 .footer {
   display: flex;
   flex-direction: column;
-  margin: 70px 70px 20px;
+  margin: 57px 70px 20px;
   justify-content: center;
 }
 
@@ -58,6 +58,7 @@
   }
   .footer__wrap {
     flex-direction: column-reverse;
+    padding: 0;
   }
   .footer__liks {
     flex-direction: column;

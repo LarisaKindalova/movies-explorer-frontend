@@ -1,7 +1,3 @@
-/* .movie__wrap {
-  position: relative;
-} */
-
 .movie__item {
   position: relative;
 }
@@ -61,7 +57,7 @@
 .movie__unsaved-button {
   position: absolute;
   top: 14px;
-  right: 21px;
+  right: 14px;
   background: url("../../../images/saved_btn.svg") center no-repeat;
   background-size: 21px 21px;
   width: 21px;
@@ -70,23 +66,36 @@
   cursor: pointer;
 }
 
-@media screen and (max-width:800px) {
+.movie__delete-button {
+  position: absolute;
+  background: url("../../../images/delete_btn.svg") center no-repeat;
+  background-color: #F9F9F9;
+  border: 0;
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
   .movie__img {
     width: 339px;
     height: 190px;
   }
   .movie__description {
-    margin: 25px 0 0 ;
+    margin: 16px 0 0;
   }
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width: 400px) {
   .movie__img {
     width: 300px;
     height: 168px;
   }
   .movie__description {
-    margin: 11px 0 0 ;
+    margin: 11px 0 0;
   }
   .movie__caption {
     font-size: 12px;

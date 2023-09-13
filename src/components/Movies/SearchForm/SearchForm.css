@@ -88,10 +88,10 @@
   }
   .search__input {
     font-size: 14px;
-    padding: 25px 15px;
+    padding: 25px 0 25px 18px;
   }
   .search__form {
-    gap: 40px;
-    margin-bottom: 30px;
+    gap: 37px;
+    margin-bottom: 33px;
   }
 }

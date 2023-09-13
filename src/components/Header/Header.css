@@ -3,13 +3,11 @@
 }
 
 .header__container {
-  box-sizing: border-box;
   display: flex;
-  padding: 18px 70px;
+  padding: 18px 63px;
   align-items: center;
   justify-content: space-between;
   max-width: 1280px;
-  margin: 0 auto;
 }
 
 .header__logo {
@@ -55,14 +53,17 @@
   padding: 8px 0;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 790px){
   .header__container {
     padding: 15px 30px 0;
   }
   .header__burger {
-    height: 44px;
+    display: block;
+    box-sizing: border-box;
     width: 44px;
+    height: 43px;
     background-image: url(../../images/burger_icon.svg);
+    background-size: 44px 44px;
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;

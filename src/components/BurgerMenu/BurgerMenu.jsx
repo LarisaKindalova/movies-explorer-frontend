@@ -17,7 +17,7 @@ function BurgerMenu ({onClose}) {
           <NavLink to="/saved-movies" className={({isActive}) => `burger_link link ${isActive ? "burger_link_active" : ""}`}>Сохранённые фильмы</NavLink>
         </nav>
           <nav className="burger__profile-nav">
-          <Link to="#" className="navigation__profile-link link">
+          <Link to="/profile" className="navigation__profile-link link">
             <img className="navigation__profile-btn" src={profile} alt="Кнопка входа в аккаунт" />
           </Link>
         </nav>
