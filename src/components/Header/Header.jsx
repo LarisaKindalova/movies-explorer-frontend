@@ -5,13 +5,13 @@ import Navigation from "../Navigation/Navigation";
 import { Link, useLocation } from "react-router-dom";
 
 function Header() {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   const location = useLocation();
 
 
   return (
     <header
-      className={`header ${location.pathname === "/" ? "header_promo" : ""}`}
+      className={`header ${location.pathname === "/" ? "header_place_landing" : ""}`}
     >
       <div className="header__container">
         <Link to="/">
@@ -21,10 +21,10 @@ function Header() {
           <Navigation />
         ) : (
           <nav className="header__auth">
-            <Link to="/signup" className="header__register link">
+            <Link to="/signup" className=" header__link header__link_type_register link">
               Регистрация
             </Link>
-            <Link to="/signin" className="header__login button">
+            <Link to="/signin" className="header__link header__link_type_login button">
               Войти
             </Link>
           </nav>

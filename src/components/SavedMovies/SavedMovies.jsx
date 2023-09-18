@@ -2,7 +2,7 @@ import React from "react";
 import "./SavedMovies.css";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList ";
-import { movie } from "../../../utils/constants";
+import { movie } from "../../utils/constants";
 
 function SavedMovies() {
 
@@ -12,6 +12,7 @@ function SavedMovies() {
       <SearchForm />
     <MoviesCardList 
     movies={savedMovies}
+    displayButton={false}
  />
     </main>
   )

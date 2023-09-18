@@ -79,10 +79,10 @@
     margin: 230px auto;
   }
   .profile__title {
-    margin: 0 0 96px;
+    margin: 0 0 83px;
   }
   .profile__wrap {
-    margin: 170px 0 0;
+    margin: 195px 0 0;
   }
 }
 
@@ -90,13 +90,19 @@
   .profile {
     margin: 64px auto;
   }
+  .profile__lable {
+    margin: 12px 0 0;
+  }
   .profile__title {
-    margin: 0 0 80px;
+    margin: 0 0 68px;
   }
   .profile__wrap {
-    margin: auto auto 0;
+    margin: 365px 0 0;
   }
   .profile__input-wrap {
     width: 260px;
+  }
+  .profile__button, .profile__link {
+    font-size: 12px;
   }
 }

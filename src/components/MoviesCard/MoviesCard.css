@@ -1,8 +1,8 @@
-.movie__item {
+.movies__item {
   position: relative;
 }
 
-.movie__img {
+.movies__img {
   width: 360px;
   height: 201px;
   border-radius: 6px;
@@ -10,21 +10,25 @@
   object-position: center;
 }
 
-.movie__description {
+.movies__description {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 10px 19px 0;
 }
 
-.movie__caption {
+.movies__caption {
   font-size: 13px;
   font-weight: 500;
   line-height: normal;
   margin: 0;
+  max-width: 254px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.movie__duration {
+.movies__duration {
   color: #a0a0a0;
   text-align: center;
   font-size: 11px;
@@ -38,7 +42,7 @@
   height: 12px;
 }
 
-.movie__save-button {
+.movies__save-button {
   position: absolute;
   padding: 0;
   width: 72px;
@@ -54,11 +58,11 @@
   right: 14px;
 }
 
-.movie__unsaved-button {
+.movies__unsaved-button {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: url("../../../images/saved_btn.svg") center no-repeat;
+  background: url("../../images/saved_btn.svg") center no-repeat;
   background-size: 21px 21px;
   width: 21px;
   height: 21px;
@@ -66,9 +70,9 @@
   cursor: pointer;
 }
 
-.movie__delete-button {
+.movies__delete-button {
   position: absolute;
-  background: url("../../../images/delete_btn.svg") center no-repeat;
+  background: url("../../images/delete_btn.svg") center no-repeat;
   background-color: #F9F9F9;
   border: 0;
   border-radius: 50%;
@@ -79,29 +83,29 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 800px) {
-  .movie__img {
+@media screen and (max-width: 1155px) {
+  .movies__img {
     width: 339px;
     height: 190px;
   }
-  .movie__description {
+  .movies__description {
     margin: 16px 0 0;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .movie__img {
+  .movies__img {
     width: 300px;
     height: 168px;
   }
-  .movie__description {
+  .movies__description {
     margin: 11px 0 0;
   }
-  .movie__caption {
+  .movies__caption {
     font-size: 12px;
   }
-  .movie__save-button,
-  .movie__unsaved-button {
+  .movies__save-button,
+  .movies__unsaved-button {
     top: 10px;
     right: 10px;
   }

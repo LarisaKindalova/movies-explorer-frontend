@@ -1,52 +1,93 @@
 import React from "react";
 import "./Profile.css";
-// import Header from "../Header/Header";
 import { Link } from "react-router-dom";
+import useValidation from "../hooks/useValidation";
 
 function Profile() {
+  const { values, handleChange, errors, isFormValid } = useValidation(); // диструктуризируем useValidation
+  const [isEditProfile, setEditProfile] = React.useState(false);
+  const [isFormEdited, setFormEdited] = React.useState(false);
+
+  function handleChangeProfile() {
+    setEditProfile(true);
+  }
+
+  function handleInputChange(evt) {
+    handleChange(evt);
+    setFormEdited(true);
+  }
+
+  function handleSubmitProfile(evt) {
+    evt.preventDefault();
+  }
+
   return (
     <>
-      <section className="profile">
-        <h2 className="profile__title">Привет, Виталий!</h2>
-        <form className="profile__form">
+      <main className="profile">
+        <h1 className="profile__title">Привет, Виталий!</h1>
+        <form className="form profile__form" onSubmit={handleSubmitProfile}>
           <div className="profile__input-wrap">
-            <lable className="profile__lable" for="name">
+            <label className="profile__lable" htmlFor="name">
               Имя
-            <input
-              type="text"
-              className="profile__input"
-              id="name"
-              required
-              placeholder="Имя"
-              minLength={2}
-              maxLength={40}
+              <input
+                type="text"
+                className="profile__input input"
+                id="name"
+                placeholder="Имя"
+                name="name"
+                minLength={2}
+                maxLength={40}
+                required
+                disabled={!isEditProfile}
+                value={values.name || ""}
+                onChange={handleInputChange}
               />
-            <span className="form__error form__error_profile"></span>
-              </lable>
+              <span className="form__error form__error_profile">
+                {errors.name || ""}
+              </span>
+            </label>
           </div>
           <div className="profile__input-wrap">
-            <lable className="profile__lable" for="email">
+            <label className="profile__lable" htmlFor="email">
               E-mail
-            <input
-              className="profile__input"
-              required
-              type="email"
-              id="email"
-              placeholder="E-mail"
-              name="email"
-              >
-            </input>
-            <span className="form__error form__error_profile"></span>
-           </lable>
+              <input
+                className="profile__input input"
+                type="email"
+                id="email"
+                placeholder="E-mail"
+                name="email"
+                required
+                disabled={!isEditProfile}
+                value={values.email || ""}
+                onChange={handleInputChange}
+                />
+              <span className="form__error form__error_profile">
+                {errors.email || ""}
+              </span>
+            </label>
           </div>
         </form>
         <div className="profile__wrap">
-          <button className="profile__button button">Редактировать</button>
+          {!isEditProfile ? (
+            <button
+              className="profile__button button"
+              onClick={handleChangeProfile}
+            >
+              Редактировать
+            </button>
+          ) : (
+            <button
+              className="form__submit-button button_type_profile button"
+              disabled={!isFormValid || !isFormEdited}
+            >
+              Сохранить
+            </button>
+          )}
           <Link to="/" className="profile__link link">
             Выйти из аккаунта
           </Link>
         </div>
-      </section>
+      </main>
     </>
   );
 }

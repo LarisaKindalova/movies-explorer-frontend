@@ -2,9 +2,9 @@ import React from "react";
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function MoviesCardList({ movies, isToggleButton }) {
+function MoviesCardList({ movies, isToggleButton, displayButton }) {
   return (
-    <section className="movies">
+    <section className="movies__section">
     <ul className="movies__list">
       {movies.map((movie, i) => (
         <MoviesCard 
@@ -13,7 +13,7 @@ function MoviesCardList({ movies, isToggleButton }) {
         isToggleButton={isToggleButton}/>
       ))}
     </ul>
-  <button className="movies__button-more">Eще</button>
+  {displayButton && (<button className="movies__button-more">Eще</button>)}
   </section>
   );
 }

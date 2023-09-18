@@ -47,7 +47,8 @@
   }
   .not-found__message {
     font-size: 14px;
-    margin: 5px 0 284px;
+    margin: 10px 0 284px;
+    font-size: 12px;
   }
   .not-found__button {
     font-size: 12px;

@@ -4,9 +4,10 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__text">
+      <div className="footer__container">
+      <h2 className="footer__text">
         Учебный проект Яндекс.Практикум х BeatFilm.
-      </p>
+      </h2>
       <div className="footer__wrap">
         <p className="footer__copyright">&copy; {new Date().getFullYear()}</p>
         <ul className="footer__liks">
@@ -24,6 +25,7 @@ function Footer() {
             </a>
           </li>
         </ul>
+      </div>
       </div>
     </footer>
   );

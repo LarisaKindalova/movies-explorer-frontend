@@ -11,15 +11,15 @@ function NotFound () {
   }
 
   return (
-    <section className="not-found">
-     <h2 className="not-found__title">404
-     </h2>
+    <main className="not-found">
+     <h1 className="not-found__title">404
+     </h1>
      <span className="not-found__message">
       Страница не найдена</span>
      <button 
      className="not-found__button button"
      onClick={hadleGoBack}>Назад</button>
-    </section>
+    </main>
   )
 }
 

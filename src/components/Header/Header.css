@@ -1,4 +1,4 @@
-.header_promo {
+.header_place_landing {
   background-color: #f3c1f8;
 }
 
@@ -7,7 +7,8 @@
   padding: 18px 63px;
   align-items: center;
   justify-content: space-between;
-  max-width: 1280px;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .header__logo {
@@ -29,23 +30,23 @@
   align-items: center;
 }
 
-.header__register {
+.header__link_type_register {
   text-decoration: none;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
-  color: #000; 
+  color: #000;
 }
 
-.header__login {
+.header__link_type_login {
   text-decoration: none;
   color: #fff;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px; 
-  background-color: #000; 
+  line-height: 16px;
+  background-color: #000;
   border-radius: 3px;
   width: 76px;
   height: 16px;
@@ -53,7 +54,7 @@
   padding: 8px 0;
 }
 
-@media screen and (max-width: 790px){
+@media screen and (max-width: 790px) {
   .header__container {
     padding: 15px 30px 0;
   }
@@ -69,19 +70,19 @@
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
-    transition: opacity .2s linear;
+    transition: opacity 0.2s linear;
     margin: 0;
     padding: 0;
   }
 
   .header__burger:hover {
-    opacity: .8;
+    opacity: 0.8;
   }
 }
 
 @media screen and (max-width: 880px) {
   .header__container {
-    padding: 18px 30px;
+    padding: 18px 18px;
   }
 }
 
@@ -97,7 +98,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
-  color: #000; 
+  color: #000;
 }
 
 .nav__auth-login {
@@ -106,8 +107,8 @@
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px; 
-  background-color: #000; 
+  line-height: 16px;
+  background-color: #000;
   border-radius: 3px;
   width: 76px;
   height: 16px;
@@ -115,28 +116,31 @@
   padding: 8px 0;
 }
 
-
 @media screen and (max-width: 650px) {
   .header__container {
     padding: 18px 14px;
     max-width: 100%;
   }
-    .nav__auth {
-      gap: 14px;
-    }
-    .header__register {
-      font-size: 10px;
-      }
-    .header__login {
-      font-size: 10px;
-      font-style: normal;
-      width: 54px;
-      height: 16px;
-      text-align: center;
-      padding: 5px 0;
-    }
-    .header__auth {
-      gap: 14px;
-    }
+  .nav__auth {
+    gap: 14px;
   }
-
+  .header__link_type_register {
+    font-size: 10px;
+  }
+  .header__link_type_login {
+    font-size: 10px;
+    font-style: normal;
+    width: 54px;
+    height: 16px;
+    text-align: center;
+    padding: 5px 0;
+  }
+  .header__auth {
+    gap: 14px;
+  }
+  .header__burger {
+    width: 40px;
+    height: 43px;
+    background-size: 40px 43px;
+  }
+}

@@ -5,7 +5,7 @@
   flex: auto;
 }
 
-.auth__header {
+.header_auth {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -18,6 +18,10 @@
   align-items: center;
   margin: 16px 0 0;
   justify-content: center;
+}
+
+.button_type_register {
+  margin: 70px 0 0;
 }
 
 @media screen and (max-width: 800px) {
@@ -40,5 +44,8 @@
   .auth__sign {
     justify-content: center;
     margin: 14px 0 0;
+  }
+  .button_type_register {
+    margin: 156px 0 0;
   }
 }

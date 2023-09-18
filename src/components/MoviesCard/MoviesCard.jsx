@@ -13,15 +13,15 @@ function MoviesCard({ movie }) {
   const savedFimls = location.pathname === "/saved-movies"; 
 
   return (
-    <li className="movie__item">
-      <img src={movie.img} alt={movie.name} className="movie__img" />
+    <li className="movies__item">
+      <img src={movie.img} alt={movie.name} className="movies__img" />
    
-      {movie.isSaved && savedFimls ? (<button className="movie__delete-button button"></button>) :
-      (<button className={`button ${!movie.isSaved && !isToggleButton ? "movie__save-button" : "movie__unsaved-button" }`}
+      {movie.isSaved && savedFimls ? (<button className="movies__delete-button button"></button>) :
+      (<button className={`button ${!movie.isSaved && !isToggleButton ? "movies__save-button" : "movies__unsaved-button" }`}
       onClick={toggleButton}>{!movie.isSaved && !isToggleButton ? "Сохранить" : ""}</button>)}
-      <div className="movie__description">
-        <h2 className="movie__caption">{movie.name}</h2>
-        <p className="movie__duration">{movie.duration}</p>
+      <div className="movies__description">
+        <h2 className="movies__caption">{movie.name}</h2>
+        <p className="movies__duration">{movie.duration}</p>
       </div>
     </li>
   );
