@@ -26,7 +26,6 @@ function Navigation () {
      <button 
         className="header__burger button"
         type="button"
-        area-label="Кнопка открытия меню"
         onClick={toggleMenu}
       ></button>
     {isBurgerMenuOpen && <BurgerMenu onClose={toggleMenu}/>}

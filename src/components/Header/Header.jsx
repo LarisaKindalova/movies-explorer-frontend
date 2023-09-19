@@ -5,7 +5,7 @@ import Navigation from "../Navigation/Navigation";
 import { Link, useLocation } from "react-router-dom";
 
 function Header() {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
   const location = useLocation();
 
 

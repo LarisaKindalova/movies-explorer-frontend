@@ -63,8 +63,11 @@
     margin-top: 144px;
   }
   .burger_close-btn {
-    top: 18px;
-    right: 20px;
+    top: 16px;
+    right: 28px;
+  }
+  .burger__profile-nav {
+    margin-bottom: 119px;
   }
   
 }

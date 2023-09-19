@@ -44,7 +44,7 @@ function Register() {
             onChange={handleChange}
           />
           <span className="form__error">{errors.name || ""}</span>
-          <lable className="form__lable" for="email">
+          <lable className="form__lable" htmlFor="email">
             E-mail
           </lable>
           <input
@@ -58,7 +58,7 @@ function Register() {
             onChange={handleChange}
           ></input>
           <span className="form__error">{errors.email || ""}</span>
-          <lable className="form__lable" for="email">
+          <lable className="form__lable" htmlFor="email">
             Пароль
           </lable>
           <input
