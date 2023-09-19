@@ -1,0 +1,47 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts.css);
+
+.page {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin: 0 auto;
+  min-width: 320px;
+  width: 100%;
+  min-height: 100vh;
+  color: #000;
+  font-family: "Inter", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.link {
+  text-decoration: none;
+  transition: opacity 0.2s linear;
+  color: #000;
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.button {
+  transition: opacity 0.2s linear;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.form:focus,
+.input:focus,
+.link:focus,
+.header__logo:focus {
+  outline: 1px solid #a0a0a0;
+}
+
+button:focus {
+  outline: none;
+  opacity: 0.8;
+}

@@ -1,0 +1,51 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  margin: 70px auto;
+  flex: auto;
+}
+
+.header_auth {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 396px;
+}
+
+.auth__sign {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 16px 0 0;
+  justify-content: center;
+}
+
+.button_type_register {
+  margin: 70px 0 0;
+}
+
+@media screen and (max-width: 800px) {
+  .register {
+    margin: 232px auto;
+  }
+  .auth__sign {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .register {
+    margin: 56px auto;
+    align-items: center;
+  }
+  .auth__header {
+    align-items: center;
+  }
+  .auth__sign {
+    justify-content: center;
+    margin: 14px 0 0;
+  }
+  .button_type_register {
+    margin: 156px 0 0;
+  }
+}
