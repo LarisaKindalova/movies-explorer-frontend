@@ -1,15 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Form from "../Form/Form";
 import "./Register.css";
 import logo from "../../images/logo.svg";
 import useValidation from "../hooks/useValidation";
+import * as mainApi from "../../utils/MainApi.jsx"
 
-function Register() {
+function Register(isLoggedIn) {
   const { values, handleChange, errors, isFormValid } = useValidation();
+
+
 
   const handleSubmitForm = evt => {
     evt.preventDefault();
+    mainApi.register()
+    
+
   };
 
   return (

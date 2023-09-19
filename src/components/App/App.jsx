@@ -9,10 +9,15 @@ import NotFound from "../NotFound/NotFound";
 import Profile from "../Profile/Profile";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
+import Preloader from "../Preloader/Preloader";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import { CurrentUserContext } from "../context/currentUserContext";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 function App() {
-  // const [isLoggedIn, setLoggedIn] = React.useState(true);
+  const [isLoggedIn, setLoggedIn] = React.useState(false);
+  const [currentUser, setCurrentUser] = React.useState({});
+  const [isloading, setIsloading] = React.userState(false)
   const location = useLocation();
 
   // const pathLink = location.pathname === "/signup" || location.pathname === "/signin";
@@ -29,18 +34,36 @@ function App() {
 
   return (
     <div className="page">
-      {pathHeader ? <Header /> : ""}
-      <Routes>
-        <Route path="/signup" element={<Register />} />
-        <Route path="/signin" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/" element={<Main />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/saved-movies" element={<SavedMovies />} />
-      </Routes>
-      {pathFooter ? <Footer /> : ""}
-    </div>
+        {isloading ? (<Preloader/>) : (
+        <CurrentUserContext.Provider value={currentUser}>
+        {pathHeader ? <Header /> : ""}
+        <Routes>
+          <Route path="/signup" element={<Register />} />
+          <Route path="/signin" element={<Login />} />
+          <Route path="/" element={<Main />} />
+          <Route path="*" element={<NotFound />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute element={Profile} isLoggedIn={isLoggedIn} />
+            }
+          />
+          <Route
+            path="/movies"
+            element={
+              <ProtectedRoute element={Movies} isLoggedIn={isLoggedIn} />
+            }
+          />
+          <Route
+            path="/saved-movies"
+            element={
+              <ProtectedRoute element={SavedMovies} isLoggedIn={isLoggedIn} />
+            }
+          />
+        </Routes>
+        {pathFooter ? <Footer /> : ""}
+        </CurrentUserContext.Provider>)}
+      </div>
   );
 }
 

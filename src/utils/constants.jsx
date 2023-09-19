@@ -73,3 +73,7 @@ export const movie = [
     isSaved: true,
   },
 ];
+
+export const BASE_URL = "https://api.kind.movies.nomoredomainsicu.ru";
+export const MOVIE_BASE_URL = "https://api.nomoreparties.co";
+export const emailRegex = "[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\\.[a-z]{2,}"
