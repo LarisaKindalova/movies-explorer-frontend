@@ -1,21 +1,13 @@
 .movies__item {
   position: relative;
-  /* max-width: 360px; */
 }
 
 .movies__img {
+  width: 360px;
+  height: 201px;
   border-radius: 6px;
   object-fit: cover;
   object-position: center;
-  cursor: pointer;
-  overflow: hidden;
-  transition: transform 250ms linear;
-  width: 360px;
-  height: 190px;
-}
-
-.movies__img:hover {
-  transform: rotateZ(1.5deg) scale(1);
 }
 
 .movies__description {
@@ -82,8 +74,6 @@
   position: absolute;
   background: url("../../images/delete_btn.svg") center no-repeat;
   background-color: #F9F9F9;
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
-  border: 0;
   border: 0;
   border-radius: 50%;
   width: 21px;
@@ -103,7 +93,7 @@
   }
 }
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 400px) {
   .movies__img {
     width: 300px;
     height: 168px;
