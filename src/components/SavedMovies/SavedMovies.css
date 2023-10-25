@@ -1,7 +1,8 @@
 .saved-movies {
-  margin-bottom: 185px;
+  display: flex;
+  flex-direction: column;
+  min-height: 550px;
 }
-
 
 @media screen and (max-width: 880px) {
   .saved-movies {

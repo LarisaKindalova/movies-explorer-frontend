@@ -31,6 +31,7 @@
   background-repeat: no-repeat;
   background-position: 19px;
   padding: 25px 63px;
+  margin-right: 19px;
   font-size: 18px;
   font-weight: 400;
   line-height: 20px;
@@ -57,6 +58,15 @@
   cursor: pointer;
 }
 
+.search__error {
+  color: #ff4062;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  margin: 0 40px;
+}
+
 @media screen and (max-width: 880px) {
   .search {
     margin: 80px 19px 0;
@@ -76,10 +86,14 @@
     margin-bottom: 46px;
     flex-direction: column;
     align-items: stretch;
+    box-shadow: none;
   }
   .search__input {
     background-image: none;
     padding: 25px 19px;
+  }
+  .search__wrap {
+    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
   }
 }
 
