@@ -15,10 +15,8 @@ import {
 } from "../../utils/constants";
 
 function Profile({
-  setIsloading,
   handleUpdateUser,
   setLoggedIn,
-  setCurrentUser,
 }) {
   const {
     values,
@@ -77,6 +75,7 @@ function Profile({
     } else {
       setFormValid(true);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors]);
 
   React.useEffect(() => {

@@ -25,15 +25,15 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // React.useEffect(() => {
-  //   isLoggedIn &&
-  //     mainApi
-  //       .checkToken()
-  //       .then(user => {
-  //         setCurrentUser(user);
-  //       })
-  //       .catch(err => console.log(`Ошибка: ${err}`));
-  // }, [isLoggedIn]);
+  React.useEffect(() => {
+    isLoggedIn &&
+      mainApi
+        .checkToken()
+        .then(user => {
+          setCurrentUser(user);
+        })
+        .catch(err => console.log(`Ошибка: ${err}`));
+  }, [isLoggedIn]);
 
   React.useEffect(() => {
     checToken();

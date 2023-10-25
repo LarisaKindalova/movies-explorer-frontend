@@ -2,6 +2,7 @@ import React from "react";
 import "./SavedMovies.css";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList ";
+import Preloader from "../Preloader/Preloader";
 import * as mainApi from "../../utils/MainApi.jsx";
 import { MESSAGE_ERROR_NOT_FOUND } from "../../utils/constants";
 import {
@@ -72,13 +73,16 @@ function SavedMovies({savedMovies, setSavedMovies, deleteMovie}) {
         isChecked={isChecked}
         setChecked={setChecked}
       />
+      {isLoading ? (
+        <Preloader />
+        ) : (
       <MoviesCardList
         movies={savedMovies}
         deleteMovie={deleteMovie}
         isLoading={isLoading}
         error={error}
         displayButton={false}
-      />
+      />)}
     </main>
   );
 }
