@@ -1,16 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Form from "../Form/Form";
 import "./Login.css";
 import logo from "../../images/logo.svg";
 import useValidation from "../hooks/useValidation";
+import * as mainApi from "../../utils/MainApi.jsx";
+import {BAD_REQUEST, UNAUTHORIZED, MESSAGE_ERROR_AUTH, MESSAGE_ERROR_TOKEN, MESSAGE_ERROR_LOGIN } from "../../utils/constants";
 
-function Login() {
+
+function Login({handleLogin }) {
   const { values, handleChange, errors, isFormValid } = useValidation(); // диструктуризируем useValidation
+  const [serverError, setServerError] = React.useState("");
+  const navigate = useNavigate();
 
-  const handleSubmitForm = evt => {
+  const handleLoginSubmit = evt => {
     evt.preventDefault();
-  };
+    const { email, password } = values;
+    mainApi.login({ email, password })
+      .then(() => {
+        handleLogin();
+        navigate("/movies", { replace: true });
+        handleChange();
+      })
+      .catch((err) => {
+        if (err.status === BAD_REQUEST) {
+          setServerError(MESSAGE_ERROR_AUTH);
+        } if (err.status === UNAUTHORIZED) {
+          return setServerError(MESSAGE_ERROR_TOKEN);
+        }  setServerError(MESSAGE_ERROR_LOGIN);
+      });
+  }
+
 
   return (
     <main className="login">
@@ -26,11 +46,11 @@ function Login() {
           button="login"
           buttonText="Войти"
           disabled={!isFormValid}
-          onSubmit={handleSubmitForm}
+          onSubmit={handleLoginSubmit}
         >
-          <lable className="form__lable" htmlFor="email">
+          <label className="form__lable" htmlFor="email">
             E-mail
-          </lable>
+          </label>
           <input
             className="form__input input"
             required
@@ -42,9 +62,9 @@ function Login() {
             onChange={handleChange}
           ></input>
           <span className="form__error">{errors.email || ""}</span>
-          <lable className="form__lable" htmlFor="email">
+          <label className="form__lable" htmlFor="email">
             Пароль
-          </lable>
+          </label>
           <input
             className="form__input form__input_type_password input"
             type="password"
@@ -54,10 +74,14 @@ function Login() {
             id="password"
             name="password"
             placeholder="Password"
+            autoComplete="on"
             value={values.password || ""}
             onChange={handleChange}
           ></input>
           <span className="form__error">{errors.password}</span>
+          <span className="form__error form__error_type_subbmit">
+            {serverError}
+          </span>
         </Form>
         <div className="auth__sign">
           <p className="auth__subtitle">Ещё не зарегистрированы?</p>

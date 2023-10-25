@@ -1,21 +1,45 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Form from "../Form/Form";
 import "./Register.css";
 import logo from "../../images/logo.svg";
 import useValidation from "../hooks/useValidation";
-import * as mainApi from "../../utils/MainApi.jsx"
+import * as mainApi from "../../utils/MainApi.jsx";
+import {
+  MESSAGE_ERROR_REGISTER,
+  MESSAGE_ERROR_EMAIL,
+  BAD_REQUEST,
+  CONFLICT,
+  MESSAGE_ERROR_AUTH,
+  INTERNAL_SERVER_ERROR,
+} from "../../utils/constants";
 
-function Register(isLoggedIn) {
+function Register({ handleLogin }) {
   const { values, handleChange, errors, isFormValid } = useValidation();
+  const navigate = useNavigate();
+  const [serverError, setServerError] = React.useState("");
 
-
-
-  const handleSubmitForm = evt => {
+  const handleSubmitRegister = evt => {
     evt.preventDefault();
-    mainApi.register()
-    
-
+    const { name, email, password } = values;
+    mainApi
+      .register({ name, email, password })
+      .then(data => {
+        handleLogin({ email, password });
+        navigate("/movies");
+      })
+      .catch(err => {
+        if (err.status === BAD_REQUEST) {
+          return setServerError(MESSAGE_ERROR_REGISTER);
+        }
+        if (err.status === CONFLICT) {
+          return setServerError(MESSAGE_ERROR_EMAIL);
+        }
+        if (err.status === INTERNAL_SERVER_ERROR) {
+          return setServerError(MESSAGE_ERROR_AUTH);
+        }
+        setServerError(MESSAGE_ERROR_REGISTER);
+      });
   };
 
   return (
@@ -29,14 +53,14 @@ function Register(isLoggedIn) {
         <h1 className="auth__title">Добро пожаловать!</h1>
         <Form
           name="register"
-          button="register"          
+          button="register"
           buttonText="Зарегистрироваться"
           disabled={!isFormValid}
-          onSubmit={handleSubmitForm}
+          onSubmit={handleSubmitRegister}
         >
-          <lable className="form__lable" htmlFor="name">
+          <label className="form__lable" htmlFor="name">
             Имя
-          </lable>
+          </label>
           <input
             className="form__input input"
             required
@@ -46,13 +70,14 @@ function Register(isLoggedIn) {
             minLength={2}
             maxLength={40}
             name="name"
+            pattern="[a-zA-Zа-яА-Я\-\s]+"
             value={values.name || ""}
             onChange={handleChange}
           />
           <span className="form__error">{errors.name || ""}</span>
-          <lable className="form__lable" htmlFor="email">
+          <label className="form__lable" htmlFor="email">
             E-mail
-          </lable>
+          </label>
           <input
             className="form__input input"
             required
@@ -62,11 +87,12 @@ function Register(isLoggedIn) {
             name="email"
             value={values.email || ""}
             onChange={handleChange}
+            pattern="[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}"
           ></input>
           <span className="form__error">{errors.email || ""}</span>
-          <lable className="form__lable" htmlFor="email">
+          <label className="form__lable" htmlFor="email">
             Пароль
-          </lable>
+          </label>
           <input
             className="form__input form__input_type_password input"
             required
@@ -77,8 +103,12 @@ function Register(isLoggedIn) {
             name="password"
             value={values.password || ""}
             onChange={handleChange}
+            autoComplete="off"
           ></input>
           <span className="form__error">{errors.password || ""}</span>
+          <span className="form__error form__error_type_subbmit">
+            {serverError}
+          </span>
         </Form>
         <div className="auth__sign">
           <p className="auth__subtitle">Уже зарегистрированы?</p>
