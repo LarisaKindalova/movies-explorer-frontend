@@ -24,9 +24,12 @@ function Register({ handleLogin }) {
     const { name, email, password } = values;
     mainApi
       .register({ name, email, password })
-      .then(data => {
-        handleLogin({ email, password });
-        navigate("/movies");
+      .then(() => {
+        mainApi.login({ email, password })
+        .then(() => {
+          handleLogin();
+          navigate("/movies");
+        });
       })
       .catch(err => {
         if (err.status === BAD_REQUEST) {

@@ -21,9 +21,9 @@ export const MESSAGE_INPUT_WORD = "Нужно ввести ключевое сл
 export const MESSAGE_ERROR_NOT_FOUND = "По вашему запросу ничего не найдено";
 export const MESSAGE_ERROR_SERVER = "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
 //размер экрана при котором перестраиваются карточки
-export const SCREEN_SIZE_DESKTOP = 989;
-export const SCREEN_SIZE_TABLET = 661;
-export const SCREEN_SIZE_MOBILE = 654;
+export const SCREEN_SIZE_DESKTOP = 1100;
+export const SCREEN_SIZE_TABLET = 735;
+// export const SCREEN_SIZE_MOBILE = 654;
 
 //стартовый набор карточек
 export const MOVIES_DESKTOP = 12;

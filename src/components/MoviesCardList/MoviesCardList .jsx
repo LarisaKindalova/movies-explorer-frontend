@@ -27,7 +27,7 @@ function MoviesCardList({ movies, saveMovie, deleteMovie, error, savedMovies }) 
     if (screenWidth >= SCREEN_SIZE_DESKTOP) {
       setDisplayedMovies(MOVIES_DESKTOP);
       setMoreMovies(MOVIES_ADD_DESKTOP);
-    } else if (screenWidth >= SCREEN_SIZE_TABLET && screenWidth <= SCREEN_SIZE_DESKTOP) {
+    } else if (screenWidth >= SCREEN_SIZE_TABLET && screenWidth < SCREEN_SIZE_DESKTOP) {
       setDisplayedMovies(MOVIES_TABLET);
       setMoreMovies(MOVIES_ADD_TABLET);
     } else if (screenWidth < SCREEN_SIZE_TABLET) {

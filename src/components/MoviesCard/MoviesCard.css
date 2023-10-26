@@ -52,6 +52,7 @@
 
 .movies__save-button {
   position: absolute;
+  color: #000000;
   padding: 0;
   width: 72px;
   height: 21px;

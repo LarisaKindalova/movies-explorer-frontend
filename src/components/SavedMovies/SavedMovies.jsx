@@ -10,7 +10,7 @@ import {
   filteredShortMovies,
   setLocalStorage,
   getLocalStorage,
-} from "../../utils/movies";
+} from "../../utils/moviesUtils";
 
 function SavedMovies({savedMovies, setSavedMovies, deleteMovie}) {
   const [searchQuery, setSearchQuery] = React.useState(

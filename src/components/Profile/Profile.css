@@ -13,6 +13,7 @@
   font-weight: 500;
   line-height: normal;
   margin: 0 0 117px;
+  max-width: 410px;
 }
 
 .profile__form {

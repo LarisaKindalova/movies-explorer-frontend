@@ -93,9 +93,8 @@ export function deleteMovies(movieId) {
 
 export function logOut () {
   return fetch(`${BASE_URL}/signout`, {
-    method: "GET",
+    method: "POST",
     headers: {
-      "Accept": "application/json",
       "Content-Type": "application/json",
     },
     credentials: 'include',

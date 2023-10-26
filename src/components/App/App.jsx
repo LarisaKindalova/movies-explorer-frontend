@@ -15,11 +15,11 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import * as mainApi from "../../utils/MainApi.jsx";
 import { MOVIE_BASE_URL } from "../../utils/constants";
-import { setLocalStorage, getLocalStorage } from "../../utils/movies";
+import { setLocalStorage, getLocalStorage } from "../../utils/moviesUtils";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState({ name: "", email: "" });
+  const [currentUser, setCurrentUser] = React.useState({ });
   const [isloading, setIsloading] = React.useState(false);
   const [savedMovies, setSavedMovies] = React.useState([]);
   const location = useLocation();
@@ -29,18 +29,18 @@ function App() {
     isLoggedIn &&
       mainApi
         .checkToken()
-        .then(user => {
+        .then((user)=> {
           setCurrentUser(user);
         })
         .catch(err => console.log(`Ошибка: ${err}`));
   }, [isLoggedIn]);
 
   React.useEffect(() => {
-    checToken();
+    checkToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function checToken() {
+  function checkToken() {
     setIsloading(true);
     mainApi
       .checkToken()

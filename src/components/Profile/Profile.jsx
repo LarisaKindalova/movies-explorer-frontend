@@ -17,6 +17,7 @@ import {
 function Profile({
   handleUpdateUser,
   setLoggedIn,
+  setCurrentUser
 }) {
   const {
     values,
@@ -89,11 +90,14 @@ function Profile({
   }, [currentUser, setValues, resetForm]);
 
   function signOut() {
-    mainApi.logOut().then(() => {
+    mainApi.logOut()
+    .then(() => {
       setLoggedIn(false);
+      setCurrentUser({});
       localStorage.clear();
       navigate("/");
-    });
+    })
+    .catch((err) => console.err(err))
   }
 
   return (
