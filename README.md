@@ -6,3 +6,6 @@
 Frontend https://kind.movies.nomoredomainsicu.ru
 
 Backend https://api.kind.movies.nomoredomainsicu.ru
+
+
+ссылка на ### pull request https://github.com/LarisaKindalova/movies-explorer-frontend/pull/22
