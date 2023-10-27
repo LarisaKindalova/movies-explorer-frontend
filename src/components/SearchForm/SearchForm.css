@@ -58,6 +58,11 @@
   cursor: pointer;
 }
 
+.search__button:disabled {
+  color: #a3a3a3;
+  background-color: #f8f8f8;
+}
+
 .search__error {
   color: #ff4062;
   font-size: 14px;

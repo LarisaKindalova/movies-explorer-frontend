@@ -21,8 +21,8 @@ function MoviesCardList({ movies, saveMovie, deleteMovie, error, savedMovies }) 
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
 
   const location  = useLocation();
-  const currentPath = location.pathname;
-
+  const moviesPath = location.pathname === "/movies";
+ 
   React.useEffect(() => {
     if (screenWidth >= SCREEN_SIZE_DESKTOP) {
       setDisplayedMovies(MOVIES_DESKTOP);
@@ -34,37 +34,44 @@ function MoviesCardList({ movies, saveMovie, deleteMovie, error, savedMovies }) 
       setDisplayedMovies(MOVIES_MOBILE);
       setMoreMovies(MOVIES_ADD_MOBILE);
     }
-
     function handleResize() {
       setScreenWidth(window.innerWidth);
     }
-
     window.addEventListener("resize", handleResize);
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, [movies, screenWidth, setScreenWidth]);
-
+  
   function showMoreMovies() {
     setDisplayedMovies(displayedMovies + moreMovies);
   }
-
+  
   return (
     <section className="movies__section">
       <ul className="movies__list">
-        {
+        { moviesPath ? (
           movies.slice(0, displayedMovies).map((movie) => (
           <MoviesCard
-            key={movie.id || movie._id}
+            key={movie.id }
             movie={movie}
             saveMovie={saveMovie}
             deleteMovie={deleteMovie}
             savedMovies ={savedMovies}
-          />
-          ))
+          />))
+        ) : (
+          movies.map((movie) => (
+            <MoviesCard
+              key={ movie._id }
+              movie={movie}
+              saveMovie={saveMovie}
+              deleteMovie={deleteMovie}
+              savedMovies ={savedMovies}
+              />)
+        ))
         }
       </ul>
       <span className="search__error">{error}</span>
-      {currentPath === "/movies" && displayedMovies < movies.length && (
+      {moviesPath  && displayedMovies < movies.length && (
         <button className="movies__button-more" 
         onClick={showMoreMovies}>
           Eще

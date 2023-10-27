@@ -72,6 +72,8 @@ function SavedMovies({savedMovies, setSavedMovies, deleteMovie}) {
         onCheckboxChange={handleCheckbox}
         isChecked={isChecked}
         setChecked={setChecked}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
       />
       {isLoading ? (
         <Preloader />

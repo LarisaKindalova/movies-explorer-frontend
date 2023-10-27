@@ -13,6 +13,9 @@ function Login({handleLogin }) {
   const [serverError, setServerError] = React.useState("");
   const navigate = useNavigate();
 
+  const valuesInitial =
+    values.name !== "" || values.email !== "";
+
   const handleLoginSubmit = evt => {
     evt.preventDefault();
     const { email, password } = values;
@@ -45,7 +48,7 @@ function Login({handleLogin }) {
           name="login"
           button="login"
           buttonText="Войти"
-          disabled={!isFormValid}
+          disabled={!isFormValid || !valuesInitial}
           onSubmit={handleLoginSubmit}
         >
           <label className="form__lable" htmlFor="email">

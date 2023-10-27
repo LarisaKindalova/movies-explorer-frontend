@@ -1,4 +1,6 @@
 
+import { SHORT_MOVIE_DURATION } from "../utils/constants";
+
 export const filteredMovieskeyword = (movies, keyword) =>
   movies.filter((movie) =>
     [movie.nameRU, movie.nameEN].some((name) =>
@@ -8,7 +10,7 @@ export const filteredMovieskeyword = (movies, keyword) =>
 
 export const filteredShortMovies = (movies, isChecked) => {
   if (isChecked) {
-    return movies.filter((movie) => movie.duration <= 40);
+    return movies.filter((movie) => movie.duration <= SHORT_MOVIE_DURATION);
   }
   return movies;
 };

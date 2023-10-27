@@ -45,6 +45,10 @@ function Register({ handleLogin }) {
       });
   };
 
+  React.useEffect(() => {
+
+  })
+
   return (
     <main className="register">
       <div className=" header header_auth">
@@ -104,6 +108,7 @@ function Register({ handleLogin }) {
             maxLength={12}
             id="password"
             name="password"
+            placeholder="Password"
             value={values.password || ""}
             onChange={handleChange}
             autoComplete="off"

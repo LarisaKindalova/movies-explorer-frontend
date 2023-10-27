@@ -12,14 +12,20 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import Preloader from "../Preloader/Preloader";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
 import * as mainApi from "../../utils/MainApi.jsx";
 import { MOVIE_BASE_URL } from "../../utils/constants";
 import { setLocalStorage, getLocalStorage } from "../../utils/moviesUtils";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState({ });
+  const [currentUser, setCurrentUser] = React.useState({});
   const [isloading, setIsloading] = React.useState(false);
   const [savedMovies, setSavedMovies] = React.useState([]);
   const location = useLocation();
@@ -29,7 +35,7 @@ function App() {
     isLoggedIn &&
       mainApi
         .checkToken()
-        .then((user)=> {
+        .then(user => {
           setCurrentUser(user);
         })
         .catch(err => console.log(`Ошибка: ${err}`));
@@ -137,13 +143,21 @@ function App() {
             <Route
               path="/signup"
               element={
-                <Register isLoggedIn={isLoggedIn} handleLogin={handleLogin} />
+                isLoggedIn ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Register isLoggedIn={isLoggedIn} handleLogin={handleLogin} />
+                )
               }
             />
             <Route
               path="/signin"
               element={
-                <Login isLoggedIn={isLoggedIn} handleLogin={handleLogin} />
+                isLoggedIn ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Login isLoggedIn={isLoggedIn} handleLogin={handleLogin} />
+                )
               }
             />
             <Route path="/" element={<Main isLoggedIn={isLoggedIn} />} />
@@ -169,7 +183,7 @@ function App() {
                   isLoggedIn={isLoggedIn}
                   saveMovie={handleMovieSave}
                   deleteMovie={handleMovieDelete}
-                  savedMovies ={savedMovies}
+                  savedMovies={savedMovies}
                 />
               }
             />

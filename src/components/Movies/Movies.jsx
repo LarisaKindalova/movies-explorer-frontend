@@ -16,7 +16,7 @@ import {
   getLocalStorage,
 } from "../../utils/moviesUtils";
 
-function Movies({ saveMovie, deleteMovie }) {
+function Movies({ saveMovie, deleteMovie, onSubmit}) {
   const [searchQuery, setSearchQuery] = React.useState(
     localStorage.getItem("search") || ""
   );
@@ -29,7 +29,7 @@ function Movies({ saveMovie, deleteMovie }) {
   const [isChecked, setChecked] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState("");
-
+ 
   function checkMovieSaved (movie, savedMovies) {
     return savedMovies.find((savedMovies) => savedMovies.movieId === movie.id);
   };
@@ -121,17 +121,20 @@ function Movies({ saveMovie, deleteMovie }) {
         onCheckboxChange={handleShortMoviesSearch}
         isChecked={isChecked}
         setChecked ={setChecked}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
         />
       {isLoading ? (
         <Preloader />
         ) : (
           <MoviesCardList
+          searchQuery={searchQuery}
           movies={isMovieSaved}
           saveMovie={saveMovie}
           deleteMovie={deleteMovie}
           savedMovies={savedMovies}
           error={error}
-           />
+        />
       )}
     </main>
   );

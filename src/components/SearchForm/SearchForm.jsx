@@ -4,7 +4,7 @@ import "../FilterCheckbox/FilterCheckbox";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 import { MESSAGE_INPUT_WORD } from "../../utils/constants";
 
-function SearchForm({ searchQuery, setSearchQuery, onSearch, onCheckboxChange, isChecked, setChecked}) {
+function SearchForm({ searchQuery, setSearchQuery, onSearch, onCheckboxChange, isChecked, setChecked, isLoading }) {
   const [error, setError] = React.useState("");
 
   function handleChange(evt) {
@@ -15,10 +15,11 @@ function SearchForm({ searchQuery, setSearchQuery, onSearch, onCheckboxChange, i
     evt.preventDefault();
     if (searchQuery.trim() === "") {
       setError(MESSAGE_INPUT_WORD);
-    } else {
+      }else{
       onSearch(searchQuery);
       setError("");
     }
+  
   }
 
   return (
@@ -34,10 +35,15 @@ function SearchForm({ searchQuery, setSearchQuery, onSearch, onCheckboxChange, i
             name="search"
             value={searchQuery}
             onChange={handleChange}
+            disabled={isLoading}
             required
           />
-          <button className="search__button button" type="submit">
-            Найти
+          <button 
+          className="search__button button" 
+          type="submit"
+          disabled={isLoading}
+          >
+            {isLoading ? "..." : "Найти"}
           </button>
         </div>
         <FilterCheckbox
