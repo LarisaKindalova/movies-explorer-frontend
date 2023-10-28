@@ -39,7 +39,7 @@ function MoviesCardList({ movies, saveMovie, deleteMovie, error, savedMovies }) 
     }
     window.addEventListener("resize", handleResize);
     handleResize();
-    return () => window.removeEventListener("resize", handleResize);
+   return () => window.removeEventListener("resize", handleResize);
   }, [movies, screenWidth, setScreenWidth]);
   
   function showMoreMovies() {
