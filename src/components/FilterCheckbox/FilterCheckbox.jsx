@@ -1,10 +1,23 @@
 import React from "react";
 import "./FilterCheckbox.css";
 
-function FilterCheckbox() {
+function FilterCheckbox({onCheckboxChange, isChecked, setChecked}) {
+
+  const handleChangeCheckbox = () => {
+    const newCheck = !isChecked;
+    setChecked(newCheck);
+    onCheckboxChange(newCheck);
+  };
+
   return (
     <div className="checkbox">
-      <input type="checkbox" id="checkbox" className="checkbox__input" />
+      <input 
+      className="checkbox__input" 
+      type="checkbox" 
+      id="checkbox"
+      onChange={handleChangeCheckbox}
+      checked={isChecked}
+      />
       <label htmlFor="checkbox" className="checkbox__label">
         Короткометражки
       </label>

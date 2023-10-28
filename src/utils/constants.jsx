@@ -1,75 +1,39 @@
-export const movie = [
-  {
-    name: "Капитан Марвел 2",
-    img: "https://i.pinimg.com/originals/60/0b/7f/600b7f6be35b1e83be6236a43e456b95.jpg",
-    duration: "2ч 13м",
-    isSaved: true,
-  },
-  {
-    name: "Аквамен и потеряенное царство",
-    img: "https://avatars.dzeninfra.ru/get-zen-vh/9832375/2a0000018a83bdfa3534dc699c07d134d588/orig",
-    duration: "2ч 05 м",
-    isSaved: true,
+// export const BASE_URL="http://localhost:4000"
+export const BASE_URL = "https://api.kind.movies.nomoredomainsicu.ru";
 
-  },
-  {
-    name: "Капитан Марвел 2",
-    img: "https://i.pinimg.com/originals/60/0b/7f/600b7f6be35b1e83be6236a43e456b95.jpg",
-    duration: "2ч 13м",
-    isSaved: false,
-  },
-  {
-    name: "Аквамен и потеряенное царство",
-    img: "https://avatars.dzeninfra.ru/get-zen-vh/9832375/2a0000018a83bdfa3534dc699c07d134d588/orig",
-    duration: "2ч 05 м",
-    isSaved: false,
-  },
-  {
-    name: "Капитан Марвел 2",
-    img: "https://i.pinimg.com/originals/60/0b/7f/600b7f6be35b1e83be6236a43e456b95.jpg",
-    duration: "2ч 13м",
-    isSaved: true,
-  },
-  {
-    name: "Аквамен и потеряенное царство",
-    img: "https://avatars.dzeninfra.ru/get-zen-vh/9832375/2a0000018a83bdfa3534dc699c07d134d588/orig",
-    duration: "2ч 05 м",
-    isSaved: false,
-  },
-  {
-    name: "Капитан Марвел 2",
-    img: "https://i.pinimg.com/originals/60/0b/7f/600b7f6be35b1e83be6236a43e456b95.jpg",
-    duration: "2ч 13м",
-    isSaved: true,
-  },
-  {
-    name: "Аквамен и потеряенное царство",
-    img: "https://avatars.dzeninfra.ru/get-zen-vh/9832375/2a0000018a83bdfa3534dc699c07d134d588/orig",
-    duration: "2ч 05 м",
-    isSaved: false,
-  },
-  {
-    name: "Капитан Марвел 2",
-    img: "https://i.pinimg.com/originals/60/0b/7f/600b7f6be35b1e83be6236a43e456b95.jpg",
-    duration: "2ч 13м",
-    isSaved: false,
-  },
-  {
-    name: "Аквамен и потеряенное царство",
-    img: "https://avatars.dzeninfra.ru/get-zen-vh/9832375/2a0000018a83bdfa3534dc699c07d134d588/orig",
-    duration: "2ч 05 м",
-    isSaved: false,
-  },
-  {
-    name: "Капитан Марвел 2",
-    img: "https://i.pinimg.com/originals/60/0b/7f/600b7f6be35b1e83be6236a43e456b95.jpg",
-    duration: "2ч 13м",
-    isSaved: false,
-  },
-  {
-    name: "Аквамен и потеряенное царство",
-    img: "https://avatars.dzeninfra.ru/get-zen-vh/9832375/2a0000018a83bdfa3534dc699c07d134d588/orig",
-    duration: "2ч 05 м",
-    isSaved: true,
-  },
-];
+export const MOVIE_BASE_URL = "https://api.nomoreparties.co";
+
+export const BAD_REQUEST = 400;
+export const UNAUTHORIZED = 401;
+export const CONFLICT = 409;
+export const INTERNAL_SERVER_ERROR = 500;
+
+export const MESSAGE_ERROR_AUTH = "Вы ввели неправильные логин или пароль";
+export const MESSAGE_ERROR_REGISTER = "При регистрации пользователя произошла ошибка";
+export const MESSAGE_ERROR_PROFILE = "При обновлении профиля произошла ошибка";
+export const MESSAGE_ERROR_EMAIL = "Пользователь с таким email уже существует";
+export const MESSAGE_ERROR_TOKEN =  "При авторизации произошла ошибка. Токен не передан или передан не в том формате"
+export const MESSAGE_ERROR_LOGIN = "При авторизации произошла ошибка. Переданный токен некорректен";
+export const MESSAGE_ERROR_MOVIES = "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз";
+export const MESSAGE_SUCCESS ="Данные профиля успешно изменены";
+
+export const MESSAGE_INPUT_WORD = "Нужно ввести ключевое слово";
+export const MESSAGE_ERROR_NOT_FOUND = "По вашему запросу ничего не найдено";
+export const MESSAGE_ERROR_SERVER = "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
+//размер экрана при котором перестраиваются карточки
+export const SCREEN_SIZE_DESKTOP = 1100;
+export const SCREEN_SIZE_TABLET = 735;
+// export const SCREEN_SIZE_MOBILE = 654;
+
+//стартовый набор карточек
+export const MOVIES_DESKTOP = 12;
+export const MOVIES_TABLET = 8;
+export const MOVIES_MOBILE = 5;
+
+// кол-во подгружаемых карточек
+export const MOVIES_ADD_DESKTOP = 3;
+export const MOVIES_ADD_TABLET = 2;
+export const MOVIES_ADD_MOBILE = 2;
+
+export const SHORT_MOVIE_DURATION = 40;
+

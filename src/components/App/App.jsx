@@ -9,14 +9,119 @@ import NotFound from "../NotFound/NotFound";
 import Profile from "../Profile/Profile";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
-import { Route, Routes, useLocation } from "react-router-dom";
+import Preloader from "../Preloader/Preloader";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import {
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
+import * as mainApi from "../../utils/MainApi.jsx";
+import { MOVIE_BASE_URL } from "../../utils/constants";
+import { setLocalStorage, getLocalStorage } from "../../utils/moviesUtils";
 
 function App() {
-  // const [isLoggedIn, setLoggedIn] = React.useState(true);
+  const [isLoggedIn, setLoggedIn] = React.useState(false);
+  const [currentUser, setCurrentUser] = React.useState({});
+  const [isloading, setIsloading] = React.useState(false);
+  const [savedMovies, setSavedMovies] = React.useState([]);
   const location = useLocation();
+  const navigate = useNavigate();
 
-  // const pathLink = location.pathname === "/signup" || location.pathname === "/signin";
-  // const pathProfile = location.pathname === "/profile";
+  React.useEffect(() => {
+    isLoggedIn &&
+      mainApi
+        .checkToken()
+        .then(user => {
+          setCurrentUser(user);
+        })
+        .catch(err => console.log(`Ошибка: ${err}`));
+  }, [isLoggedIn]);
+
+  React.useEffect(() => {
+    checkToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function checkToken() {
+    setIsloading(true);
+    mainApi
+      .checkToken()
+      .then(user => {
+        setLoggedIn(true);
+        setCurrentUser(user);
+        navigate(location.pathname);
+      })
+      .catch(() => {
+        setLoggedIn(false);
+      })
+      .finally(() => {
+        setIsloading(false);
+      });
+  }
+
+  function handleLogin() {
+    setLoggedIn(true);
+  }
+
+  function handleUpdateUser(name, email) {
+    setCurrentUser(prevUser => ({
+      ...prevUser,
+      name,
+      email,
+    }));
+  }
+
+  function handleMovieSave(movie) {
+    return mainApi
+      .saveMovies({
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: `${MOVIE_BASE_URL}${movie.image.url}`,
+        trailerLink: movie.trailerLink,
+        thumbnail: `${MOVIE_BASE_URL}${movie.image.formats.thumbnail.url}`,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+      })
+      .then(newMovie => {
+        setSavedMovies([newMovie, ...savedMovies]);
+        setLocalStorage("savedMovies", [newMovie, ...savedMovies]);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
+  function handleMovieDelete(movie) {
+    let movieId = movie._id;
+    if (!movieId && savedMovies.length > 0) {
+      const foundMovie = savedMovies.find(m => m.movieId === movie.id);
+      if (foundMovie) {
+        movieId = foundMovie._id;
+      }
+    }
+    if (movieId) {
+      const savedMoviesLocalStorage = getLocalStorage("savedMovies") || [];
+      mainApi
+        .deleteMovies(movieId)
+        .then(() => {
+          setSavedMovies(savedMovies.filter(item => item._id !== movie._id));
+          setLocalStorage(
+            "savedMovies",
+            savedMoviesLocalStorage.filter(m => m._id !== movieId)
+          );
+        })
+        .catch(err => console.log(`Ошибка: ${err}`));
+    }
+  }
+
   const pathFooter =
     location.pathname === "/" ||
     location.pathname === "/movies" ||
@@ -29,17 +134,75 @@ function App() {
 
   return (
     <div className="page">
-      {pathHeader ? <Header /> : ""}
-      <Routes>
-        <Route path="/signup" element={<Register />} />
-        <Route path="/signin" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/" element={<Main />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/saved-movies" element={<SavedMovies />} />
-      </Routes>
-      {pathFooter ? <Footer /> : ""}
+      {isloading ? (
+        <Preloader />
+      ) : (
+        <CurrentUserContext.Provider value={currentUser}>
+          {pathHeader ? <Header isLoggedIn={isLoggedIn} /> : ""}
+          <Routes>
+            <Route
+              path="/signup"
+              element={
+                isLoggedIn ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Register isLoggedIn={isLoggedIn} handleLogin={handleLogin} />
+                )
+              }
+            />
+            <Route
+              path="/signin"
+              element={
+                isLoggedIn ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Login isLoggedIn={isLoggedIn} handleLogin={handleLogin} />
+                )
+              }
+            />
+            <Route path="/" element={<Main isLoggedIn={isLoggedIn} />} />
+            <Route path="*" element={<NotFound isLoggedIn={isLoggedIn} />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute
+                  element={Profile}
+                  setLoggedIn={setLoggedIn}
+                  setCurrentUser={setCurrentUser}
+                  isLoggedIn={isLoggedIn}
+                  setIsloading={setIsloading}
+                  handleUpdateUser={handleUpdateUser}
+                />
+              }
+            />
+            <Route
+              path="/movies"
+              element={
+                <ProtectedRoute
+                  element={Movies}
+                  isLoggedIn={isLoggedIn}
+                  saveMovie={handleMovieSave}
+                  deleteMovie={handleMovieDelete}
+                  savedMovies={savedMovies}
+                />
+              }
+            />
+            <Route
+              path="/saved-movies"
+              element={
+                <ProtectedRoute
+                  element={SavedMovies}
+                  isLoggedIn={isLoggedIn}
+                  savedMovies={savedMovies}
+                  setSavedMovies={setSavedMovies}
+                  deleteMovie={handleMovieDelete}
+                />
+              }
+            />
+          </Routes>
+          {pathFooter ? <Footer /> : ""}
+        </CurrentUserContext.Provider>
+      )}
     </div>
   );
 }
