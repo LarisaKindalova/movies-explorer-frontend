@@ -12,7 +12,8 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin: 0 0 112px;
+  margin: 0 0 117px;
+  max-width: 410px;
 }
 
 .profile__form {
@@ -31,26 +32,27 @@
 
 .profile__input-wrap {
   width: 410px;
-  border-bottom: 1px solid #e8e8e8;
 }
 
-.profile__input-wrap:last-child {
-  border-bottom: none;
-}
-
-.profile__lable {
+.profile__label {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  margin: 12px 0 0;
+  align-items: center;
 }
 
 .form__error_profile {
   grid-column: span 2;
   min-height: 16px;
+  border-top: 1px solid #e8e8e8;
+  width: 410px;
 }
 
+/* .form__error_profile:last-child {
+  border-top: none;
+} */
+
 .profile__wrap {
-  margin: 204px 0 0;
+  margin: 145px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,6 +66,12 @@
   background-color: transparent;
   padding: 0;
   cursor: pointer;
+}
+
+.button_type_profile_disabled {
+  cursor: none;
+  background: #f8f8f8;
+  color: #c2c2c2;
 }
 
 .profile__link {
@@ -90,7 +98,7 @@
   .profile {
     margin: 64px auto;
   }
-  .profile__lable {
+  .profile__label {
     margin: 12px 0 0;
   }
   .profile__title {
@@ -99,10 +107,11 @@
   .profile__wrap {
     margin: 365px 0 0;
   }
-  .profile__input-wrap {
+  .profile__input-wrap, .form__error_profile{
     width: 260px;
   }
-  .profile__button, .profile__link {
+  .profile__button,
+  .profile__link {
     font-size: 12px;
   }
 }

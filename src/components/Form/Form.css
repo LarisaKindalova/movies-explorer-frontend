@@ -1,6 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .auth__title {
@@ -69,20 +70,35 @@
 
 .form__error {
   color: #ff4062;
-  font-family: Inter;
   font-size: 10px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
-  /* margin: 10px 0; */
+  margin: 10px 0 0;
   width: 396px;
-  min-height: 20px;
+  min-height: 28px;
+}
+
+.form__error_type_subbmit {
+  font-size: 12px;
+  margin-left: 20px;
 }
 
 .form__submit-button:disabled {
   cursor: none;
   background: #f8f8f8;
   color: #c2c2c2;
+}
+
+.form__success {
+  color: #a90af3;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 10px 0 0;
+  width: 396px;
+  min-height: 28px;
 }
 
 @media screen and (max-width: 800px){
